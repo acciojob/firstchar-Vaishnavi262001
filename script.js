@@ -1,13 +1,17 @@
-function firstChar(text) {
-  // your code here
-	text = text.trimStart();
-
-	if (text.length === 0) return "";
-
-	return text[0];
+function firstNonRepeatedChar(str) {
+ // Write your code here
+  const freq = {};
+  for (let char of str) {
+    freq[char] = (freq[char] || 0) + 1;
+  }
+  for (let char of str) {
+    if (freq[char] === 1) {
+      return char;
+    }
+  }
+  return null;
+	// <--- returns empty string if nothing found
 }
 
-// Do not change the code below
-//Uncomment the following line to show the prompt popup
-const text = prompt("Enter text:");
-alert(firstChar(text));
+const input = prompt("Enter a string");
+alert(firstNonRepeatedChar(input)); 
